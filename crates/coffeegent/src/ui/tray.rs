@@ -1,0 +1,1 @@
+//! StatusNotifier tray (M5).

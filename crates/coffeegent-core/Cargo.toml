@@ -1,0 +1,17 @@
+[package]
+name = "coffeegent-core"
+description = "Pure decision logic for coffeegent (no I/O)"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+# Parsing crates only. Callers load files and sockets. This crate must not gain
+# tokio, zbus, or any crate that reads the system.
+[dependencies]
+humantime = "2.2.0"
+thiserror = "1.0.69"
+toml = "0.8.23"
+
+[lints]
+workspace = true

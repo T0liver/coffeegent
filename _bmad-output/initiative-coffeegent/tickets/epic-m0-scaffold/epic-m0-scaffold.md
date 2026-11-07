@@ -8,6 +8,7 @@ sources:
   - docs/SPEC.md
 refined: true
 risk: low
+status: in-progress
 ---
 
 # The repo builds in CI

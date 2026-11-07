@@ -8,6 +8,7 @@ sources:
   - docs/SPEC.md
 refined: true
 risk: medium
+status: in-progress
 ---
 
 # The core decides the hold with no I/O
