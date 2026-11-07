@@ -1,0 +1,106 @@
+# M0–M7 and G1–G3 in SPEC §15 order. One epic each. Acceptance criteria live on the single story.
+
+[[epic]]
+id = 1
+slug = "epic-m0-scaffold"
+title = "The repo builds in CI"
+description = "The workspace, license, CI, version command, tracing, and the copied inhibit spike are in the repo, and the four confirmed rulings are the baseline later epics inherit."
+covers = ["R12"]
+
+[[epic]]
+id = 2
+slug = "epic-m1-core"
+title = "The core decides the hold with no I/O"
+description = "The session machine and decide() implement the hold and both cutoff latches, including the min_hold ruling and the working_ttl_secs default G1 may replace, with no I/O."
+covers = ["R1", "R4"]
+after = [{ epic = 1, needs = "the workspace and the four confirmed rulings" }]
+
+[[epic]]
+id = 3
+slug = "epic-m2-daemon"
+title = "The daemon applies the decision"
+description = "IPC, the fake backend, saved state, every CLI command, and the single-instance guard apply the core decision, including mode, toggle, and dead-agent expiry. M3 hosts real backends in this daemon, and G3 starts this binary."
+covers = ["R1", "R5", "R7"]
+after = [
+  { epic = 2, needs = "the pure session machine and decide()" },
+  { epic = 1, needs = "the mode, toggle, and min_hold rulings" },
+]
+
+[[epic]]
+id = 4
+slug = "epic-m3-backends"
+title = "The laptop stays awake and can cut off"
+description = "The real logind lock, power, thermal, lid tracking, and session lock run inside the M2 daemon on the target laptop. M4 lands hook events in this daemon, and M6's checklist exercises this lock."
+covers = ["R2", "R3", "R4", "R7"]
+after = [{ epic = 3, needs = "a daemon that hosts a backend and applies a decision" }]
+
+[[epic]]
+id = 5
+slug = "epic-g1-fixtures"
+title = "Real fixtures fix the hook mapping"
+description = "The human captures sanitized Claude Code and Cursor sessions, corrects SPEC §9.2 to what was observed, and replaces M1's working_ttl_secs default from the measured gaps. M4's adapters follow that output."
+covers = ["R10"]
+after = [{ epic = 2, needs = "a core working_ttl_secs default that this gate can replace from measured gaps" }]
+
+[[epic]]
+id = 6
+slug = "epic-m4-hooks"
+title = "Claude and Cursor hooks drive sessions"
+description = "The hook shim, Claude and Cursor adapters, and the installers follow the G1 fixtures, the G1 working_ttl_secs default, and the M0 always-exit-0 ruling. Events land in the M3 daemon. M5, M6, and M7 consume these hooks."
+covers = ["R1", "R10"]
+after = [
+  { epic = 4, needs = "the daemon with a real-backend seam so hook events land in a running daemon" },
+  { epic = 5, needs = "sanitized fixtures and the working_ttl_secs default" },
+  { epic = 1, needs = "the hook always-exit-0 ruling" },
+]
+
+[[epic]]
+id = 7
+slug = "epic-g2-tray"
+title = "The COSMIC tray gate is recorded"
+description = "The human runs a minimal ksni probe on COSMIC and records whether the tray can ship."
+covers = ["R13"]
+
+[[epic]]
+id = 8
+slug = "epic-m5-tray"
+title = "Tray, notifications, and doctor follow the gate"
+description = "Notifications, doctor, and either the tray or the CLI-only fallback ship exactly as the G2 result requires, on the M4 daemon, using the M0 toggle ruling. M6 packages this tray-or-CLI behavior and doctor."
+covers = ["R5", "R6", "R8", "R13"]
+after = [
+  { epic = 7, needs = "the recorded ksni result" },
+  { epic = 6, needs = "a daemon that already runs real sessions" },
+  { epic = 1, needs = "the toggle ruling" },
+]
+
+[[epic]]
+id = 9
+slug = "epic-g3-autostart"
+title = "The autostart mechanism is chosen"
+description = "The human starts the M2 coffeegent daemon through a throwaway user unit and a throwaway autostart entry, logs out and in once, then chooses the default mechanism. M6 packages that choice."
+covers = ["R14"]
+after = [{ epic = 3, needs = "a coffeegent daemon binary that can start under a user session" }]
+
+[[epic]]
+id = 10
+slug = "epic-m6-release"
+title = "A fresh install passes the manual checklist"
+description = "The .deb, the docs, the Security section, and the v0.1.0 release package G3's autostart choice, M5's tray-or-CLI behavior and doctor, and M4's hooks, and a fresh install passes SPEC §11.6. Codex stays outside this release for M7."
+covers = ["R9", "R14"]
+after = [
+  { epic = 8, needs = "tray-or-CLI behavior and doctor" },
+  { epic = 9, needs = "the chosen autostart mechanism" },
+  { epic = 6, needs = "installable Claude and Cursor hooks" },
+  { epic = 4, needs = "the real lid lock and cutoffs the checklist exercises" },
+]
+
+[[epic]]
+id = 11
+slug = "epic-m7-codex"
+title = "Codex drives working and idle"
+description = "After the M6 v0.1 release, the Codex adapter, the chained notify installer, and the file-activity detector follow M4's hook and installer pattern and keep an existing notify command."
+covers = ["R11"]
+after = [
+  { epic = 10, needs = "v0.1 released so Codex stays outside that checklist" },
+  { epic = 6, needs = "the hook and installer pattern" },
+]

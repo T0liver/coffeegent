@@ -1,0 +1,10 @@
+[[entry]]
+id = 1
+type = "story"
+title = "Drive sessions from Claude and Cursor hooks"
+description = "The hook shim, the Claude and Cursor adapters, and the installers follow the G1 fixtures and the M0 rule that the hook always exits 0."
+verify = "Real sessions drive Working -> Waiting (Claude) -> Idle; install/uninstall round trip is byte-identical"
+covers = ["R1", "R2"]
+after = ["4.1", "5.1", "1.1"]
+hitl = true
+risk = "medium"

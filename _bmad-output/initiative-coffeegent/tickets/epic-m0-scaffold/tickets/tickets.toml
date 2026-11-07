@@ -1,0 +1,10 @@
+[[entry]]
+id = 1
+type = "story"
+title = "Scaffold the workspace and CI"
+description = "The workspace, license, CI, README skeleton, version command, tracing, and the copied inhibit spike are in the repo. This is the baseline M1, M2, M4, and M5 wait on for the four confirmed rulings."
+verify = "CI green"
+covers = ["R1"]
+after = []
+hitl = false
+risk = "low"

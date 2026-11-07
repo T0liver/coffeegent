@@ -1,0 +1,10 @@
+[[entry]]
+id = 1
+type = "story"
+title = "Capture sanitized Claude and Cursor fixtures"
+description = "The human records real Claude Code and Cursor sessions with the spike tools or a logging hook, and the committed fixtures correct section 9.2 and working_ttl_secs."
+verify = "Fixtures committed; mapping tables in 9.2 corrected to OBSERVED; `working_ttl_secs` default set from data"
+covers = ["R1"]
+after = ["2.1"]
+hitl = true
+risk = "high"

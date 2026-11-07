@@ -1,0 +1,10 @@
+[[entry]]
+id = 1
+type = "story"
+title = "Apply the decision in the daemon"
+description = "IPC, fake backends, saved state, every command, the CLI, and the single-instance guard apply the core decision."
+verify = "11.4 tests pass on `--backend fake`"
+covers = ["R1", "R2", "R3"]
+after = ["2.1", "1.1"]
+hitl = false
+risk = "medium"

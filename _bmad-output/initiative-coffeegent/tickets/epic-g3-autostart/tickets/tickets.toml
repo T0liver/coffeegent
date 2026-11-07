@@ -1,0 +1,10 @@
+[[entry]]
+id = 1
+type = "story"
+title = "Choose the autostart mechanism"
+description = "The human runs one logout and login with a throwaway user unit and a throwaway autostart entry, then the default mechanism is written down."
+verify = "Default mechanism chosen and documented"
+covers = ["R1"]
+after = ["3.1"]
+hitl = true
+risk = "medium"

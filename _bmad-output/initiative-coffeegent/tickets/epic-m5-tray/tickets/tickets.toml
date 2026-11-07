@@ -1,0 +1,10 @@
+[[entry]]
+id = 1
+type = "story"
+title = "Ship notifications, doctor, and the gated tray"
+description = "Notifications, icons, and doctor ship, and the tray ships only when the G2 result says it works on COSMIC."
+verify = "Reviewed on COSMIC; notifications throttled"
+covers = ["R1", "R2", "R3", "R4"]
+after = ["7.1", "6.1", "1.1"]
+hitl = true
+risk = "medium"

@@ -1,0 +1,10 @@
+[[entry]]
+id = 1
+type = "story"
+title = "Decide the hold in the core"
+description = "Types, config, the session machine, decide(), both cutoff latches, and duration parsing live in coffeegent-core with no I/O."
+verify = "All 11.1 tests pass; core has no I/O deps"
+covers = ["R1", "R2"]
+after = ["1.1"]
+hitl = false
+risk = "medium"

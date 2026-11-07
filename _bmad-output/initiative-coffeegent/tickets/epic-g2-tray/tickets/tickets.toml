@@ -1,0 +1,10 @@
+[[entry]]
+id = 1
+type = "story"
+title = "Record the COSMIC tray result"
+description = "The human runs the minimal ksni probe on COSMIC and records whether the icon, menu, notification, and watcher restart work."
+verify = "Result recorded; if ksni fails, M5 ships notifications + CLI only and logs a tray issue"
+covers = ["R1"]
+after = []
+hitl = true
+risk = "high"

@@ -1,0 +1,10 @@
+[[entry]]
+id = 1
+type = "story"
+title = "Drive Codex without clobbering notify"
+description = "After the M6 v0.1 release and once the maintainer installs Codex, the adapter, chained installer, and file-activity detector follow M4's installer pattern, drive working and idle, and keep an existing notify command."
+verify = "Codex session drives Working/Idle; existing `notify` preserved"
+covers = ["R1"]
+after = ["10.1", "6.1"]
+hitl = true
+risk = "high"

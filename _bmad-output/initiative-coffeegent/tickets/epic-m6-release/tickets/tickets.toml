@@ -1,0 +1,10 @@
+[[entry]]
+id = 1
+type = "story"
+title = "Release v0.1.0 and pass the manual checklist"
+description = "The .deb, docs, Security section, and v0.1.0 release package the chosen autostart mechanism, and a fresh install passes the checklist."
+verify = "Fresh install on target passes the checklist (11.6)"
+covers = ["R1", "R2"]
+after = ["8.1", "9.1", "6.1", "4.1"]
+hitl = true
+risk = "high"

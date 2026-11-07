@@ -1,0 +1,10 @@
+[[entry]]
+id = 1
+type = "story"
+title = "Hold and release a real logind lock"
+description = "Logind, UPower with a sysfs fallback, the thermal poller, lid tracking, the session lock, and suspend/resume run on the target laptop."
+verify = "On the target laptop: `reachable 10m` shows the lock in `systemd-inhibit --list`; SIGKILL drops it; lid-closed run behaves as in section 0; lock-on-close result recorded (works, or notification fallback documented)"
+covers = ["R1", "R2", "R3", "R4"]
+after = ["3.1"]
+hitl = true
+risk = "high"
